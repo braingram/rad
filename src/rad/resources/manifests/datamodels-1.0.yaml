@@ -282,12 +282,6 @@ tags:
   title: Mosaic segmentation map
   description: |-
     Segmentation map computed by the Source Catalog Step
-# Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/telescope-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/telescope-1.0.0
-  title: Telescope Name
-  description: |-
-    The name of the telescope used to acquire the data.
 # FPS Schemas
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/fps-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/fps-1.0.0
