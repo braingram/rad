@@ -283,16 +283,6 @@ tags:
   description: |-
     Segmentation map computed by the Source Catalog Step
 # Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/filename-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/filename-1.0.0
-  title: File Name
-  description: |-
-    The auto-generated name of this file.
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/file_date-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/file_date-1.0.0
-  title: File Creation Date
-  description: |-
-    The date and time this file was created.
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/model_type-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/model_type-1.0.0
   title: Data Model Type
