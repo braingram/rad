@@ -283,12 +283,6 @@ tags:
   description: |-
     Segmentation map computed by the Source Catalog Step
 # Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/origin-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/origin-1.0.0
-  title: Institution / Organization Name
-  description: |-
-    The name of the institution of organization
-    responsible for creating this file.
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/prd_version-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/prd_version-1.0.0
   title: SOC PRD Version Number
