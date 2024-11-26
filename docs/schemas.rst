@@ -78,10 +78,3 @@ Tags
     wfi_detector-1.0.0
     wfi_mode-1.0.0
     wfi_optical_element-1.0.0
-    tagged_scalars/file_date-1.0.0
-    tagged_scalars/calibration_software_version-1.0.0
-    tagged_scalars/filename-1.0.0
-    tagged_scalars/model_type-1.0.0
-    tagged_scalars/origin-1.0.0
-    tagged_scalars/sdf_software_version-1.0.0
-    tagged_scalars/telescope-1.0.0

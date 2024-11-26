@@ -349,43 +349,6 @@ schema will be:
 The ``items`` simply contains a bulleted list of the sub-schemas that describe
 possibilities for the items in the list.
 
-Tagged Scalar
-*************
-
-The other case is when one needs to tag a scalar type. This is mostly to help
-with the ASDF metadata searching. All such schemas need to be inside the
-``schemas/tagged_scalars`` directory so that the correct Python data nodes can
-be automatically constructed for the data models.
-
-In this case, you add the following after the schema description if the type of
-the scalar is a primitive type:
-
-.. code:: yaml
-
-    type: <primitive type>
-
-However, if the scalar is planned to be represented by a non-primitive type such
-as a time or some other special type, then you will need to use a ``$ref`` back
-to the ``schema_uri`` not ``tag_uri`` for the schema that describes this type.
-It is important to use the ``schema_uri`` because referencing a ``tag_uri`` will
-cause ASDF validation to not only check that the data is valid for the schema,
-but also that the type being used is exactly one of the types associated with
-that tag (sub-classes will fail validation in this case). Since the ASDF
-extension supporting that type is outside of RAD's control, it is not possible
-for it to even know about RAD's sub-classes and so this will not work. Hence,
-a ``$ref`` to the ``schema_uri`` is necessary. This needs to be added after the
-description of the schema using:
-
-.. code:: yaml
-
-    allOf:
-      - $ref: <schema_uri>
-
-The ``allOf`` combiner is necessary because of quirks in how JSON-schema
-actually functions; meaning that for ASDF 3.0+ to correctly handle the schema
-without issues, the ``allOf`` combiner is necessary, see
-`PR 222 <https://github.com/spacetelescope/rad/pull/222>`_ for more details.
-
 Testing Schemas
 ---------------
 
