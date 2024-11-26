@@ -154,7 +154,14 @@ properties:
     title: Telescope Name
     description: |
       The name of the telescope used to acquire the data.
-    tag: asdf://stsci.edu/datamodels/roman/tags/telescope-1.0.0
+    type: string
+    enum: [ROMAN]
+
+    maxLength: 5
+    archive_catalog:
+      datatype: nvarchar(5)
+      destination: [WFIExposure.telescope, WFIMosaic.telescope, GuideWindow.telescope, WFICommon.telescope,
+                    SourceCatalog.telescope, SegmentationMap.telescope]
 required: [calibration_software_name, calibration_software_version,
   filename, file_date, model_type, origin, prd_version,
   sdf_software_version, telescope]
