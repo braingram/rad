@@ -283,13 +283,6 @@ tags:
   description: |-
     Segmentation map computed by the Source Catalog Step
 # Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/prd_version-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/prd_version-1.0.0
-  title: SOC PRD Version Number
-  description: |-
-    The version number of the Science Operations Center
-    (SOC) Project Reference Database (PRD) used in generating this
-    file.
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/sdf_software_version-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/sdf_software_version-1.0.0
   title: SOC SDF Version Number
