@@ -89,7 +89,16 @@ properties:
     title: Data Model Type
     description: |
       The type of data model contained within this file.
-    tag: asdf://stsci.edu/datamodels/roman/tags/model_type-1.0.0
+    type: string
+    sdf:
+      special_processing: VALUE_REQUIRED
+      source:
+        origin: TBD
+    maxLength: 50
+    archive_catalog:
+      datatype: nvarchar(50)
+      destination: [WFIExposure.model_type, GuideWindow.model_type, WFICommon.model_type, WFIMosaic.model_type,
+                    SourceCatalog.model_type, SegmentationMap.model_type]
   origin:
     title: Institution / Organization Name
     description: |
