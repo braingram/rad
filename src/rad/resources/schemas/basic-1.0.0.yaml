@@ -29,7 +29,17 @@ properties:
     description: |
       The version number of the calibration software used in processing this
       file.
-    tag: asdf://stsci.edu/datamodels/roman/tags/calibration_software_version-1.0.0
+    type: string
+    sdf:
+      special_processing: VALUE_REQUIRED
+      source:
+        origin: TBD
+    maxLength: 120
+    archive_catalog:
+      datatype: nvarchar(120)
+      destination: [WFIExposure.calibration_software_version, GuideWindow.calibration_software_version,
+                    WFICommon.calibration_software_version, WFIMosaic.calibration_software_version,
+                    SourceCatalog.calibration_software_version, SegmentationMap.calibration_software_version]
   product_type:
     title: Product Type Descriptor
     description: |
@@ -37,7 +47,17 @@ properties:
       file. This corresponds to the standard file suffixes for
       archival data products. Consult the documentation for the list
       of options.
-    tag: asdf://stsci.edu/datamodels/roman/tags/product_type-1.0.0
+    type: string
+    sdf:
+      special_processing: VALUE_REQUIRED
+      source:
+        origin: TBD
+    maxLength: 120
+    archive_catalog:
+      datatype: nvarchar(120)
+      destination: [WFIExposure.product_type, GuideWindow.product_type,
+                    WFICommon.product_type, WFIMosaic.product_type,
+                    SourceCatalog.product_type, SegmentationMap.product_type]
   filename:
     title: File Name
     description: |

@@ -283,20 +283,6 @@ tags:
   description: |-
     Segmentation map computed by the Source Catalog Step
 # Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/calibration_software_version-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/calibration_software_version-1.0.0
-  title: Calibration software version
-  description: |-
-    The version number of the calibration software used in
-    processing this file.
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/product_type-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/product_type-1.0.0
-  title: Product Type Descriptor
-  description: |-
-    A descriptor for the type of data contained within the
-    file. This corresponds to the standard file suffixes for
-    archival data products. Consult the documentation for the list
-    of options.
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/filename-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/filename-1.0.0
   title: File Name
