@@ -283,13 +283,6 @@ tags:
   description: |-
     Segmentation map computed by the Source Catalog Step
 # Tagged Scalars
-- tag_uri: asdf://stsci.edu/datamodels/roman/tags/sdf_software_version-1.0.0
-  schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/sdf_software_version-1.0.0
-  title: SOC SDF Version Number
-  description: |-
-    The version number of the Science Operations Center
-    (SOC) Science Data Formatting (SDF) software used in generating
-    this file.
 - tag_uri: asdf://stsci.edu/datamodels/roman/tags/telescope-1.0.0
   schema_uri: asdf://stsci.edu/datamodels/roman/schemas/tagged_scalars/telescope-1.0.0
   title: Telescope Name

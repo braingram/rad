@@ -139,7 +139,17 @@ properties:
       The version number of the Science Operations Center
       (SOC) Science Data Formatting (SDF) software used in generating
       this file.
-    tag: asdf://stsci.edu/datamodels/roman/tags/sdf_software_version-1.0.0
+    type: string
+    sdf:
+      special_processing: VALUE_REQUIRED
+      source:
+        origin: TBD
+    maxLength: 120
+    archive_catalog:
+      datatype: nvarchar(120)
+      destination: [WFIExposure.sdf_software_version, GuideWindow.sdf_software_version,
+                    WFICommon.sdf_software_version, WFIMosaic.sdf_software_version,
+                    SourceCatalog.sdf_software_version, SegmentationMap.sdf_software_version]
   telescope:
     title: Telescope Name
     description: |
