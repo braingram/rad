@@ -76,7 +76,7 @@ properties:
     title: File Creation Date
     description: |
       The date and time this file was created.
-    tag: http://stsci.edu/schemas/asdf/time/time-1.*
+    tag: tag:stsci.edu:asdf/time/time-1.*
     sdf:
       special_processing: VALUE_REQUIRED
       source:
