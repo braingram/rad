@@ -28,8 +28,792 @@ properties:
     title: Source Catalog
     description: |
        Photometry and astrometry computed in the Source Catalog Step.
-    tag: tag:astropy.org:astropy/table/table-1.*
-
+    allOf:
+      - tag: tag:astropy.org:astropy/table/table-1.*
+      - type: object
+        properties:
+          columns:
+            allOf:
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [flagged_spatial_index]
+                        unit: none
+                        description: Bit encoding of overlap-region flag, projection region, skycell and x,y coordinates of this object.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [bbox_xmax]
+                        unit: none
+                        description: Column index of upper right corner of bounding box of the segment
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [bbox_xmin]
+                        unit: none
+                        description: Column index of lower left corner of bounding box of the segment
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [bbox_ymax]
+                        unit: none
+                        description: Row index of upper right corner of bounding box of the segment
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [bbox_ymin]
+                        unit: none
+                        description: Row index of lower left corner of bounding box of the segment
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [image_flags]
+                        unit: none
+                        description: Data quality bit flag. Non-zero if a pixel within the segment was flagged in one of the input images.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [label]
+                        unit: none
+                        description: Label of this segment in the original detection catalog
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [segment_area]
+                        unit: arcsec^2
+                        description: Area of this segment
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec]
+                        unit: deg (decimal)
+                        description: Best estimate of the declination (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_centroid]
+                        unit: deg (decimal)
+                        description: Declination of the image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_centroid_err]
+                        unit: arcsec
+                        description: Uncertainty in the declination of the image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_centroid_win]
+                        unit: deg (decimal)
+                        description: Declination of the windowed image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_centroid_win_err]
+                        unit: arcsec
+                        description: Uncertainty in the declination of the windowed image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_psf]
+                        unit: deg (decimal)
+                        description: Declination determined from PSF fitting (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [dec_psf_err]
+                        unit: arcsec
+                        description: Uncertainty in the declination from PSF fitting (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [psf_gof]
+                        unit: none
+                        description: PSF Goodness of fit metric
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra]
+                        unit: deg (decimal)
+                        description: Best estimate of the right ascension (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_centroid]
+                        unit: deg (decimal)
+                        description: Right ascension of the image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_centroid_err]
+                        unit: arcsec
+                        description: Uncertainty in the right ascension of the image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_centroid_win]
+                        unit: deg (decimal)
+                        description: Right ascension of the windowed image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_centroid_win_err]
+                        unit: arcsec
+                        description: Uncertainty in the right ascension of the windowed image centroid (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_psf]
+                        unit: deg (decimal)
+                        description: Right ascension determined from PSF fitting (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float64]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ra_psf_err]
+                        unit: arcsec
+                        description: Uncertainty in the right ascension from PSF fitting (ICRS)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_centroid]
+                        unit: pixel
+                        description: Column pixel coordinate of the source centroid from image moments in the detection image (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_centroid_err]
+                        unit: pixel
+                        description: Uncertainty x_centroid
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_centroid_win]
+                        unit: pixel
+                        description: Column pixel coordinate of the source from windowed image moments in the detection image (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_centroid_win_err]
+                        unit: pixel
+                        description: Uncertainty on x_centroid_win
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_psf]
+                        unit: pixel
+                        description: Column pixel coordinate of the source from fitting a PSF (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [x_psf_err]
+                        unit: pixel
+                        description: Uncertainty in x_ysf
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_centroid]
+                        unit: pixel
+                        description: Row pixel coordinate of the source centroid from image moments in the detection image (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_centroid_err]
+                        unit: pixel
+                        description: Uncertainty on y_centroid
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_centroid_win]
+                        unit: pixel
+                        description: Row pixel coordinate of the source from windowed image moments in the detection image (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_centroid_win_err]
+                        unit: pixel
+                        description: Uncertainty on y_centroid_win
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_psf]
+                        unit: pixel
+                        description: Row pixel coordinate of the source from fitting a PSF (0 indexed)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [y_psf_err]
+                        unit: pixel
+                        description: Uncertainty on y_psf
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [aper_bkg_flux]
+                        unit: nJy arcsec-2
+                        description: Local background estimate for aperture photometry
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [aper_bkg_flux_err]
+                        unit: nJy
+                        description: Local background estimate for PSF-matched aperture photometry
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [aper<radius>_flux]
+                        unit: nJy
+                        description: Flux within circular aperture (radius in tenths of arcsec)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [aper<radius>_flux_err]
+                        unit: nJy
+                        description: Uncertainty in flux within circular aperture
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [kron_abmag]
+                        unit: abmag
+                        description: Flux within the elliptical Kron aperture in the reference band.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [kron_abmag_err]
+                        unit: abmag
+                        description: Flux error within the elliptical Kron aperture in the reference band.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [kron_flux]
+                        unit: nJy
+                        description: Flux within the elliptical Kron aperture in the reference band.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [kron_flux_err]
+                        unit: nJy
+                        description: Flux error within the elliptical Kron aperture in the reference band.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [psf_flux]
+                        unit: nJy
+                        description: Total integrated PSF flux.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [psf_flux_err]
+                        unit: nJy
+                        description: Total integrated PSF flux error.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [psf_flags]
+                        unit: none
+                        description: PSF fitting flag (0 = good)
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [segment_flux]
+                        unit: nJy
+                        description: Isophotal flux
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [segment_flux_err]
+                        unit: nJy
+                        description: Isophotal flux error
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [warning_flags]
+                        unit: none
+                        description: 0 = good 1 = object is outside of the core region of the skycell and projecion region. There is probably a better measurement of this same object in a different skycel with this flag set to 0.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [cxx]
+                        unit: arcsec**-2
+                        description: Ellipse parameters from the second-order image moments in the detection band
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [cyy]
+                        unit: arcsec**-2
+                        description: Ellipse parameters from the second-order image moments in the detection band
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [cxy]
+                        unit: arcsec**-2
+                        description: Ellipse parameters from the second-order image moments in the detection band
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [ellipticity]
+                        unit: none
+                        description: 1-b/a where a,b are the semi-major and semi-minor axis of the Kron aperture
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [fluxfrac_radius_50]
+                        unit: arcsec
+                        description: Radius of a circular aperture that encloses 50% of the Kron flux
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [is_extended]
+                        unit: none
+                        description: Flag to indicate that this is probably not a point source.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [bool]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [fwhm]
+                        unit: arcsec
+                        description: Circularized full-width at half maximum computed from the Kron semi-major and semi-minor axis lengths in the detection image
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [kron_radius]
+                        unit: arcsec
+                        description: First-moment radius measured in the detection image.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [orientation_pix]
+                        unit: deg
+                        description: Position angle in the x-y plane computed from image moments in the detection image
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [orientation_sky]
+                        unit: deg
+                        description: Position angle computed from image moments in the detection image
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [roundness1]
+                        unit: none
+                        description: The ratio of a measure of the object's bilateral (2-fold) to four-fold symmetry in each band.
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [semimajor]
+                        unit: arcsec
+                        description: Kron semi-major axis in the detection image
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [semiminor]
+                        unit: arcsec
+                        description: Kron semi-minor axis in the detection image
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [sharpness]
+                        unit: none
+                        description: DAOFind source sharpness statistic in each band
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [nn_distance]
+                        unit: arcsec
+                        description: The distance in arcseconds to the nearest neighbor in this skycell
+                        data:
+                          properties:
+                            datatype:
+                              enum: [float32]
+              - not:
+                  items:
+                    not:
+                      properties:
+                        name:
+                          enum: [nn_label]
+                        unit: none
+                        description: label of the nearest neighbor in this skycell
+                        data:
+                          properties:
+                            datatype:
+                              enum: [int32]
 required: [meta, source_catalog]
 flowStyle: block
 propertyOrder: [meta, source_catalog]
