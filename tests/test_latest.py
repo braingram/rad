@@ -38,27 +38,6 @@ class TestLastestResources:
         """
         assert latest_paths
 
-    def test_archive_meta_uniqueness(self, latest_paths):
-        """
-        Check that archve_meta is either undefined or unique.
-        """
-        archive_metas = {}
-        for path, schema in latest_paths.items():
-            # It's ok for schemas to not contain this
-            if "archive_meta" not in schema:
-                continue
-
-            archive_meta = schema["archive_meta"].strip()
-
-            # Track the possible duplicates
-            if archive_meta not in archive_metas:
-                archive_metas[archive_meta] = []
-            archive_metas[archive_meta].append(path)
-
-        # Check for duplicates
-        for archive_meta, paths in archive_metas.items():
-            assert len(paths) == 1, f"{paths} contain the same archive_meta: {archive_meta}"
-
     def test_latest_filename(self, latest_path, latest_uri):
         """
         Check that the file name of the schema matches the schema ID WITHOUT the version number suffix.
@@ -195,6 +174,16 @@ class TestLastestResources:
             assert path.parent == latest_datamodels_dir, (
                 f"{latest_tagged_schema_uri} is a datamodel that is not in the top-level directory."
             )
+
+    def test_archive_meta_uniqueness(self, latest_archive_metas, latest_archive_uri, latest_archive_meta):
+        """
+        Check that archve_meta is either undefined or unique.
+        """
+        archive_uris = latest_archive_metas[latest_archive_meta]
+
+        assert len(archive_uris) == 1, (
+            f"Archive meta for {latest_archive_uri} is shared with other URIs: {archive_uris - {latest_archive_uri}}"
+        )
 
     def test_top_level_schema(self, latest_top_level_path, metaschema_uri, latest_paths):
         """

@@ -66,7 +66,9 @@ _LATEST_MANIFEST_TAGS = MappingProxyType(
 _LATEST_DATAMODELS_URI = next(uri for uri in _LATEST_MANIFEST_URIS if "static" not in uri)
 _LATEST_STATIC_URI = next(uri for uri in _LATEST_MANIFEST_URIS if "static" in uri)
 _LATEST_DATAMODEL_URIS = tuple(uri["schema_uri"] for uri in _LATEST_MANIFEST_URIS[_LATEST_DATAMODELS_URI]["tags"])
-_LATEST_ARCHIVE_URIS = tuple(schema["id"] for schema in _LATEST_PATHS.values() if "archive_meta" in schema)
+_LATEST_ARCHIVE_URIS = MappingProxyType(
+    {schema["id"]: schema["archive_meta"] for schema in _LATEST_PATHS.values() if "archive_meta" in schema}
+)
 
 
 _PREVIOUS_DATAMODELS_URI = _find_latest(
@@ -142,12 +144,35 @@ def latest_uri(latest_schema):
     return latest_schema["id"]
 
 
+@pytest.fixture(scope="session")
+def latest_archive_metas():
+    """
+    Get the archive_meta -> uri mapping
+    """
+    archive_metas = {}
+    for uri, meta in _LATEST_ARCHIVE_URIS.items():
+        if meta not in archive_metas:
+            archive_metas[meta] = set()
+
+        archive_metas[meta].add(uri)
+
+    return archive_metas
+
+
 @pytest.fixture(scope="session", params=_LATEST_ARCHIVE_URIS)
 def latest_archive_uri(request):
     """
     Get a latest archive resource URI
     """
     return request.param
+
+
+@pytest.fixture(scope="session")
+def latest_archive_meta(latest_archive_uri):
+    """
+    Get the latest archive metadata
+    """
+    return _LATEST_ARCHIVE_URIS[latest_archive_uri]
 
 
 @pytest.fixture(scope="session")
